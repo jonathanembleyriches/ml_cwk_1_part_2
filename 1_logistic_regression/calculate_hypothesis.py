@@ -11,9 +11,9 @@ def calculate_hypothesis(X, theta, i):
     #########################################
     # Write your code here
     # You must calculate the hypothesis for the i-th sample of X, given X, theta and i.
-
-    hypothesis = sum([X[i][j]*theta[j] for j in range(len(theta))])
+    return sigmoid(np.dot(X[i],theta))
+    #hypothesis = sum([X[i][j]*theta[j] for j in range(len(theta))])
     ########################################/
-    result = sigmoid(hypothesis)
+    #result = sigmoid(hypothesis)
     
-    return result
+    #return result

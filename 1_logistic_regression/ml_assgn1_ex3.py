@@ -19,6 +19,18 @@ X, y = load_data_ex1()
 # Compute the new features
 # Insert extra singleton dimension, to obtain Nx1 shape
 # Append columns of the new features to the dataset, to the dimension of columns (i.e., 1)
+x1_x2 = X[:,0]**X[:,1]
+x1_x2 = np.expand_dims(x1_x2, axis=1)
+
+x1_x1 = X[:,0]**X[:,0]
+x1_x1 = np.expand_dims(x1_x1, axis=1)
+
+x2_x2 = X[:,1]**X[:,1]
+x2_x2 = np.expand_dims(x2_x2, axis=1)
+
+X = np.append(X, x1_x2, axis=1)
+X = np.append(X, x1_x1, axis=1)
+X = np.append(X, x2_x2, axis=1)
 
 ########################################/
 
@@ -33,11 +45,11 @@ X_normalized = np.append(column_of_ones, X_normalized, axis=1)
 # Initialise trainable parameters theta
 #########################################
 # Write your code here
-
+theta = np.zeros((6))
 ########################################/
 
 # Set learning rate alpha and number of iterations
-alpha = 1.0
+alpha = 0.1
 iterations = 100
 
 # Call the gradient descent function to obtain the trained parameters theta_final and the cost vector
